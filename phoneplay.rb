@@ -14,7 +14,7 @@ end
 post '/voice' do
   verb = Twilio::Verb.new do |v|
     v.play RECORDINGS[:plays][rand(RECORDINGS[:plays].size-1)]
-    v.play RECORDINGS[:footer]
+    v.play RECORDINGS[:footer] if RECORDINGS[:footer]
   end
   verb.response
 end
